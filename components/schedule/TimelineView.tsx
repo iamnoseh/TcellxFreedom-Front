@@ -36,7 +36,7 @@ export function TimelineView({ tasks, onComplete, onSkip, isLoading }: TimelineV
 
   return (
     <div className="relative">
-      <div className="absolute left-4 top-3 bottom-3 w-px bg-white/10" />
+      <div className="absolute left-4 top-3 bottom-3 w-px bg-gray-200" />
       <div className="space-y-3">
         {sortedTasks.map((task, i) => {
           const isCompleted = task.status === 'Completed'
@@ -52,8 +52,8 @@ export function TimelineView({ tasks, onComplete, onSkip, isLoading }: TimelineV
                     isCompleted
                       ? 'bg-emerald-500 border-emerald-500'
                       : isSkipped
-                      ? 'bg-gray-600 border-gray-600'
-                      : `bg-[#0D0920] ${dotBorderColors[i % 4]}`
+                      ? 'bg-gray-300 border-gray-300'
+                      : `bg-white ${dotBorderColors[i % 4]}`
                   )}
                 >
                   {isCompleted ? (
@@ -69,10 +69,10 @@ export function TimelineView({ tasks, onComplete, onSkip, isLoading }: TimelineV
                 className={cn(
                   'flex-1 p-3 rounded-xl border transition-all',
                   isCompleted
-                    ? 'bg-emerald-500/10 border-emerald-500/20 opacity-70'
+                    ? 'bg-emerald-50 border-emerald-200 opacity-70'
                     : isSkipped
-                    ? 'bg-gray-700/20 border-gray-600/20 opacity-50'
-                    : 'bg-[#1A1035] border-white/10'
+                    ? 'bg-gray-50 border-gray-200 opacity-50'
+                    : 'bg-white border-gray-100 shadow-sm'
                 )}
               >
                 <div className="flex items-start justify-between gap-2">
@@ -81,14 +81,14 @@ export function TimelineView({ tasks, onComplete, onSkip, isLoading }: TimelineV
                       <span
                         className={cn(
                           'text-sm font-medium',
-                          isDone ? 'line-through text-gray-400' : 'text-white'
+                          isDone ? 'line-through text-gray-400' : 'text-gray-800'
                         )}
                       >
                         {task.title}
                       </span>
                       {task.isAiSuggested && <AiBadge />}
                     </div>
-                    <div className="flex items-center gap-3 text-xs text-gray-500">
+                    <div className="flex items-center gap-3 text-xs text-gray-400">
                       <span>{formatTime(task.scheduledAt)}</span>
                       <div className="flex items-center gap-1">
                         <Clock size={10} />
@@ -101,14 +101,14 @@ export function TimelineView({ tasks, onComplete, onSkip, isLoading }: TimelineV
                       <button
                         onClick={() => onComplete(task.planId, task.id)}
                         disabled={isLoading}
-                        className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors"
+                        className="p-1.5 rounded-lg bg-emerald-100 text-emerald-600 hover:bg-emerald-200 transition-colors"
                       >
                         <Check size={14} />
                       </button>
                       <button
                         onClick={() => onSkip(task.planId, task.id)}
                         disabled={isLoading}
-                        className="p-1.5 rounded-lg bg-gray-700/50 text-gray-400 hover:bg-gray-700 transition-colors"
+                        className="p-1.5 rounded-lg bg-gray-100 text-gray-400 hover:bg-gray-200 transition-colors"
                       >
                         <SkipForward size={14} />
                       </button>

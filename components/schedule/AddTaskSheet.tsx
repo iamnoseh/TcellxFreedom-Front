@@ -41,20 +41,20 @@ export function AddTaskSheet({ selectedDate, onClose, onSubmit, isLoading }: Pro
       <div className="fixed inset-0 bg-black/60 z-40" onClick={onClose} />
 
       {/* Sheet — pb-[90px] to clear the bottom nav bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#120D2E] rounded-t-2xl px-5 pt-4 pb-[90px] space-y-4">
-        <div className="w-10 h-1 bg-gray-600 rounded-full mx-auto" />
-        <h3 className="text-white font-semibold text-lg">Вазифаи нав</h3>
+      <div className="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-2xl px-5 pt-4 pb-[90px] space-y-4 shadow-2xl">
+        <div className="w-10 h-1 bg-gray-200 rounded-full mx-auto" />
+        <h3 className="text-gray-900 font-semibold text-lg">Вазифаи нав</h3>
 
         {/* Title */}
         <div>
-          <label className="text-gray-400 text-xs mb-1 block">Унвон</label>
+          <label className="text-gray-500 text-xs mb-1 block">Унвон</label>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
             placeholder="Вазифаро нависед..."
-            className="w-full bg-[#1A1035] text-white rounded-xl px-4 py-3 text-sm outline-none border border-[#2D1F5E] focus:border-violet-500"
+            className="w-full bg-gray-50 text-gray-900 rounded-xl px-4 py-3 text-sm outline-none border border-gray-200 focus:border-[#7B2FBE]"
             autoFocus
           />
         </div>
@@ -62,7 +62,7 @@ export function AddTaskSheet({ selectedDate, onClose, onSubmit, isLoading }: Pro
         {/* Time + Duration on one row */}
         <div className="flex gap-3">
           <div className="flex-1">
-            <label className="text-gray-400 text-xs mb-1 block">Вақт</label>
+            <label className="text-gray-500 text-xs mb-1 block">Вақт</label>
             <div className="flex items-center gap-1.5">
               <input
                 type="number"
@@ -70,9 +70,9 @@ export function AddTaskSheet({ selectedDate, onClose, onSubmit, isLoading }: Pro
                 max={23}
                 value={hour}
                 onChange={(e) => setHour(parseInt(e.target.value) || 0)}
-                className="w-14 bg-[#1A1035] text-white rounded-xl px-2 py-3 text-sm text-center outline-none border border-[#2D1F5E] focus:border-violet-500"
+                className="w-14 bg-gray-50 text-gray-900 rounded-xl px-2 py-3 text-sm text-center outline-none border border-gray-200 focus:border-[#7B2FBE]"
               />
-              <span className="text-white font-bold text-lg">:</span>
+              <span className="text-gray-700 font-bold text-lg">:</span>
               <input
                 type="number"
                 min={0}
@@ -80,13 +80,13 @@ export function AddTaskSheet({ selectedDate, onClose, onSubmit, isLoading }: Pro
                 step={5}
                 value={minute}
                 onChange={(e) => setMinute(parseInt(e.target.value) || 0)}
-                className="w-14 bg-[#1A1035] text-white rounded-xl px-2 py-3 text-sm text-center outline-none border border-[#2D1F5E] focus:border-violet-500"
+                className="w-14 bg-gray-50 text-gray-900 rounded-xl px-2 py-3 text-sm text-center outline-none border border-gray-200 focus:border-[#7B2FBE]"
               />
             </div>
           </div>
 
           <div className="flex-1">
-            <label className="text-gray-400 text-xs mb-1 block">Давомнокӣ (дақ)</label>
+            <label className="text-gray-500 text-xs mb-1 block">Давомнокӣ (дақ)</label>
             <input
               type="number"
               min={1}
@@ -94,7 +94,7 @@ export function AddTaskSheet({ selectedDate, onClose, onSubmit, isLoading }: Pro
               value={duration}
               onChange={(e) => setDuration(e.target.value)}
               placeholder="60"
-              className="w-full bg-[#1A1035] text-white rounded-xl px-4 py-3 text-sm outline-none border border-[#2D1F5E] focus:border-violet-500"
+              className="w-full bg-gray-50 text-gray-900 rounded-xl px-4 py-3 text-sm outline-none border border-gray-200 focus:border-[#7B2FBE]"
             />
           </div>
         </div>

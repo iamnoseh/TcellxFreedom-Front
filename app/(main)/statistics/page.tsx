@@ -66,30 +66,30 @@ export default function StatisticsPage() {
 
         {/* Streak calendar */}
         <Card>
-          <h3 className="text-sm font-semibold text-gray-300 mb-3">Ҳафтаи ҷорӣ</h3>
+          <h3 className="text-sm font-semibold text-gray-700 mb-3">Ҳафтаи ҷорӣ</h3>
           <StreakCalendar weeklyStats={weeklyStats} />
         </Card>
 
         {/* Category bars */}
         {totalTasks > 0 && (
           <Card>
-            <h3 className="text-sm font-semibold text-gray-300 mb-3">Категорияҳо</h3>
+            <h3 className="text-sm font-semibold text-gray-700 mb-3">Категорияҳо</h3>
             <CategoryBars categories={categoryData} />
           </Card>
         )}
 
         {/* AI suggestions */}
         {statistics?.aiSuggestions && statistics.aiSuggestions.length > 0 && (
-          <Card className="border border-orange-500/20">
+          <Card className="border border-orange-200">
             <div className="flex items-center gap-2 mb-3">
-              <h3 className="text-sm font-semibold text-gray-300">Маслиҳатҳои AI</h3>
+              <h3 className="text-sm font-semibold text-gray-700">Маслиҳатҳои AI</h3>
               <AiBadge />
             </div>
             <div className="space-y-2">
               {statistics.aiSuggestions.map((tip, i) => (
                 <div key={i} className="flex gap-2">
-                  <span className="text-orange-400 text-sm">•</span>
-                  <p className="text-gray-300 text-sm leading-relaxed">{tip}</p>
+                  <span className="text-orange-500 text-sm">•</span>
+                  <p className="text-gray-600 text-sm leading-relaxed">{tip}</p>
                 </div>
               ))}
             </div>

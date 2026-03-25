@@ -13,10 +13,10 @@ interface BadgeProps {
 
 export function Badge({ children, variant = 'violet' }: BadgeProps) {
   const styles = {
-    violet: 'bg-violet-600/20 text-violet-400',
-    orange: 'bg-orange-500/20 text-orange-400',
-    green: 'bg-emerald-500/20 text-emerald-400',
-    gray: 'bg-gray-700 text-gray-300',
+    violet: 'bg-purple-100 text-[#7B2FBE]',
+    orange: 'bg-orange-100 text-orange-600',
+    green: 'bg-emerald-100 text-emerald-600',
+    gray: 'bg-gray-100 text-gray-600',
   }
 
   return (

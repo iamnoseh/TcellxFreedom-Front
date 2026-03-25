@@ -25,12 +25,12 @@ export function DayTabs({ selectedDate, onSelectDate }: DayTabsProps) {
             className={cn(
               'flex flex-col items-center gap-1 px-3 py-2 rounded-xl flex-shrink-0 transition-all min-w-[48px]',
               isSelected
-                ? 'bg-violet-600 text-white'
-                : 'bg-[#1A1035] text-gray-400 hover:bg-[#231448]'
+                ? 'bg-[#7B2FBE] text-white shadow-sm'
+                : 'bg-white text-gray-500 hover:bg-gray-50 shadow-sm'
             )}
           >
             <span className="text-xs font-medium">{dayNames[date.getDay()]}</span>
-            <span className={cn('text-base font-bold', isToday && !isSelected && 'text-violet-400')}>
+            <span className={cn('text-base font-bold', isToday && !isSelected && 'text-[#7B2FBE]')}>
               {date.getDate()}
             </span>
           </button>

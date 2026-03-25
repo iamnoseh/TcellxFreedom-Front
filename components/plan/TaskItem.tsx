@@ -12,20 +12,20 @@ interface TaskItemProps {
 
 export function TaskItem({ task, index }: TaskItemProps) {
   return (
-    <div className="flex gap-3 p-3 rounded-xl bg-[#231448]">
+    <div className="flex gap-3 p-3 rounded-xl bg-white shadow-sm border border-gray-100">
       <div className="flex flex-col items-center gap-1 flex-shrink-0">
         <span className="text-gray-400 text-xs font-mono">{formatTime(task.scheduledAt)}</span>
         <div className={`w-2 h-2 rounded-full ${dotColors[index % 4]}`} />
       </div>
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-1">
-          <span className="text-white text-sm font-medium truncate">{task.title}</span>
+          <span className="text-gray-800 text-sm font-medium truncate">{task.title}</span>
           {task.isAiSuggested && <AiBadge />}
         </div>
         {task.description && (
-          <p className="text-gray-400 text-xs mb-1 line-clamp-2">{task.description}</p>
+          <p className="text-gray-500 text-xs mb-1 line-clamp-2">{task.description}</p>
         )}
-        <div className="flex items-center gap-1 text-gray-500 text-xs">
+        <div className="flex items-center gap-1 text-gray-400 text-xs">
           <Clock size={12} />
           <span>{task.estimatedMinutes} дақ.</span>
         </div>

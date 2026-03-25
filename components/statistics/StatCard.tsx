@@ -9,18 +9,18 @@ interface StatCardProps {
 }
 
 const colorMap = {
-  violet: 'text-violet-400',
-  orange: 'text-orange-400',
-  green: 'text-emerald-400',
-  blue: 'text-blue-400',
+  violet: 'text-[#7B2FBE]',
+  orange: 'text-orange-500',
+  green: 'text-emerald-600',
+  blue: 'text-blue-600',
 }
 
 export function StatCard({ label, value, sub, color = 'violet' }: StatCardProps) {
   return (
     <Card variant="elevated" className="flex flex-col gap-1">
-      <span className="text-gray-400 text-xs">{label}</span>
+      <span className="text-gray-500 text-xs">{label}</span>
       <span className={cn('text-2xl font-bold', colorMap[color])}>{value}</span>
-      {sub && <span className="text-gray-500 text-xs">{sub}</span>}
+      {sub && <span className="text-gray-400 text-xs">{sub}</span>}
     </Card>
   )
 }

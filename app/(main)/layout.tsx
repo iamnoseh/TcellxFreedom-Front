@@ -18,22 +18,22 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
 
   if (!hasHydrated) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#0D0920]">
-        <div className="w-8 h-8 border-2 border-violet-500 border-t-transparent rounded-full animate-spin" />
+      <div className="min-h-screen flex items-center justify-center bg-[#F4F6FA]">
+        <div className="w-8 h-8 border-2 border-violet-600 border-t-transparent rounded-full animate-spin" />
       </div>
     )
   }
 
   if (!token) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#0D0920]">
-        <div className="w-8 h-8 border-2 border-violet-500 border-t-transparent rounded-full animate-spin" />
+      <div className="min-h-screen flex items-center justify-center bg-[#F4F6FA]">
+        <div className="w-8 h-8 border-2 border-violet-600 border-t-transparent rounded-full animate-spin" />
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-[#0D0920]">
+    <div className="min-h-screen bg-[#F4F6FA]">
       <main className="pb-20">{children}</main>
       <BottomNav />
     </div>

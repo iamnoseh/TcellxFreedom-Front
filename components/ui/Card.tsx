@@ -11,8 +11,8 @@ export function Card({ children, className, variant = 'default' }: CardProps) {
     <div
       className={cn(
         'rounded-2xl p-4',
-        variant === 'default' && 'bg-[#1A1035]',
-        variant === 'elevated' && 'bg-[#231448]',
+        variant === 'default' && 'bg-white shadow-sm',
+        variant === 'elevated' && 'bg-white shadow-md',
         className
       )}
     >

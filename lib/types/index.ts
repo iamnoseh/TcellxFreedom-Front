@@ -71,3 +71,68 @@ export interface NotificationDto {
   notificationTitle: string
   notificationBody: string
 }
+
+// ─── TcellPass Types ──────────────────────────────────────────────
+export interface UserDailyTaskDto {
+  id: string
+  title: string
+  description: string
+  xpReward: number
+  category: string
+  isPremiumOnly: boolean
+  status: 'Pending' | 'Completed' | 'Expired'
+  completedAt: string | null
+}
+
+export interface UserTcellPassDto {
+  userId: string
+  totalXp: number
+  currentLevel: number
+  xpToNextLevel: number
+  currentStreakDays: number
+  longestStreak: number
+  tier: 'Free' | 'Premium'
+  premiumExpiresAt: string | null
+  todayTasks: UserDailyTaskDto[]
+}
+
+export interface LevelRewardDto {
+  level: number
+  tier: 'Free' | 'Premium'
+  rewardType: string
+  rewardDescription: string
+  rewardQuantity: number | null
+  isClaimedByCurrentUser: boolean
+}
+
+export interface CompleteTaskResultDto {
+  taskId: string
+  xpAwarded: number
+  newTotalXp: number
+  newLevel: number
+  leveledUp: boolean
+  streakUpdated: boolean
+  currentStreakDays: number
+  streakBonusAwarded: boolean
+  streakBonusXp: number
+}
+
+export interface ClaimRewardResultDto {
+  level: number
+  rewardDescription: string
+  message: string
+}
+
+export interface ActivatePremiumResultDto {
+  expiresAt: string
+  message: string
+}
+
+export interface LeaderboardEntryDto {
+  rank: number
+  userId: string
+  displayName: string
+  totalXp: number
+  currentLevel: number
+  tier: string
+}

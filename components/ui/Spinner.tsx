@@ -4,7 +4,7 @@ export function Spinner({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        'inline-block w-6 h-6 border-2 border-violet-500 border-t-transparent rounded-full animate-spin',
+        'inline-block w-6 h-6 border-2 border-[#7B2FBE] border-t-transparent rounded-full animate-spin',
         className
       )}
     />

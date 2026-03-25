@@ -1,4 +1,3 @@
-import { Card } from '@/components/ui/Card'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import { formatDate } from '@/lib/utils/date'
 import type { UserDto, PlanDto } from '@/lib/types'
@@ -13,27 +12,39 @@ export function GreetingCard({ user, plans }: GreetingCardProps) {
   const completedTasks = plans.reduce((sum, p) => sum + p.completedTasks, 0)
   const today = formatDate(new Date().toISOString())
 
+  const initials = user?.firstName ? user.firstName[0].toUpperCase() : 'У'
+
   return (
-    <Card className="bg-gradient-to-br from-violet-700/40 to-[#1A1035] border border-violet-500/20">
-      <div className="mb-3">
-        <p className="text-gray-400 text-sm">{today}</p>
-        <h2 className="text-2xl font-bold mt-1">
-          Рӯз хайр, {user?.firstName ?? 'Дӯст'}!
-        </h2>
+    <div className="bg-gradient-to-br from-[#7B2FBE] to-[#4A1A8C] rounded-2xl p-4 shadow-md">
+      {/* Top row: avatar + date + notification */}
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-11 h-11 rounded-full bg-white/20 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+          {initials}
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-white/70 text-xs">{today}</p>
+          <h2 className="text-white font-bold text-base truncate">
+            Рӯз хайр, {user?.firstName ?? 'Дӯст'}!
+          </h2>
+        </div>
       </div>
+
       {totalTasks > 0 ? (
-        <>
-          <p className="text-gray-300 text-sm mb-2">
-            {completedTasks} аз {totalTasks} вазифа — Давом деҳ!
-          </p>
-          <ProgressBar value={completedTasks} max={totalTasks} />
-          <p className="text-violet-400 text-xs mt-2 text-right font-medium">
-            {totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0}%
-          </p>
-        </>
+        <div className="bg-white/10 rounded-xl px-4 py-3">
+          <div className="flex justify-between items-center mb-2">
+            <p className="text-white/80 text-sm">Вазифаҳои имрӯз</p>
+            <span className="text-white font-semibold text-sm">
+              {completedTasks}/{totalTasks}
+            </span>
+          </div>
+          <ProgressBar value={completedTasks} max={totalTasks} className="h-1.5 bg-white/20" />
+        </div>
       ) : (
-        <p className="text-gray-400 text-sm">Имрӯз нақша нест. ИИ-нақша созед!</p>
+        <div className="bg-white/10 rounded-xl px-4 py-3">
+          <p className="text-white/80 text-sm">Имрӯз нақша нест.</p>
+          <p className="text-white/50 text-xs mt-0.5">ИИ-нақша созед!</p>
+        </div>
       )}
-    </Card>
+    </div>
   )
 }

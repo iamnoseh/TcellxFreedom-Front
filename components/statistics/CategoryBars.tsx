@@ -17,7 +17,7 @@ export function CategoryBars({ categories }: CategoryBarsProps) {
       {categories.map((cat) => (
         <div key={cat.label}>
           <div className="flex justify-between items-center mb-1.5">
-            <span className="text-sm text-gray-300">{cat.label}</span>
+            <span className="text-sm text-gray-700">{cat.label}</span>
             <span className="text-xs text-gray-500">
               {cat.value}/{cat.max}
             </span>

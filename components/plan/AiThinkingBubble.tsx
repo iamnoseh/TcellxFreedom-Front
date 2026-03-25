@@ -12,37 +12,37 @@ export function AiThinkingBubble() {
     <div className="flex flex-col gap-3 animate-fade-in">
       {/* User message skeleton */}
       <div className="flex justify-end">
-        <div className="bg-violet-600/30 rounded-2xl rounded-br-sm px-4 py-3 max-w-[80%]">
-          <div className="h-3 w-40 bg-violet-400/30 rounded-full animate-pulse" />
-          <div className="h-3 w-24 bg-violet-400/20 rounded-full animate-pulse mt-2" />
+        <div className="bg-purple-100 rounded-2xl rounded-br-sm px-4 py-3 max-w-[80%]">
+          <div className="h-3 w-40 bg-purple-300/50 rounded-full animate-pulse" />
+          <div className="h-3 w-24 bg-purple-200/50 rounded-full animate-pulse mt-2" />
         </div>
       </div>
 
       {/* AI thinking bubble */}
       <div className="flex items-end gap-2 max-w-[85%]">
-        <div className="w-8 h-8 rounded-full bg-violet-700 flex items-center justify-center flex-shrink-0 mb-1">
-          <span className="text-xs">AI</span>
+        <div className="w-8 h-8 rounded-full bg-[#7B2FBE] flex items-center justify-center flex-shrink-0 mb-1">
+          <span className="text-white text-xs font-bold">AI</span>
         </div>
-        <div className="bg-[#231448] rounded-2xl rounded-tl-sm p-4 flex-1">
+        <div className="bg-white rounded-2xl rounded-tl-sm p-4 flex-1 shadow-sm border border-gray-100">
           {/* Animated dots */}
           <div className="flex items-center gap-1.5 mb-2">
             <span
-              className="w-2 h-2 rounded-full bg-violet-400 animate-bounce"
+              className="w-2 h-2 rounded-full bg-[#7B2FBE] animate-bounce"
               style={{ animationDelay: '0ms' }}
             />
             <span
-              className="w-2 h-2 rounded-full bg-violet-400 animate-bounce"
+              className="w-2 h-2 rounded-full bg-[#7B2FBE] animate-bounce"
               style={{ animationDelay: '150ms' }}
             />
             <span
-              className="w-2 h-2 rounded-full bg-violet-400 animate-bounce"
+              className="w-2 h-2 rounded-full bg-[#7B2FBE] animate-bounce"
               style={{ animationDelay: '300ms' }}
             />
           </div>
 
           {/* Cycling status text */}
           <RotatingText messages={MESSAGES} />
-          <span className="text-xs text-violet-500 mt-2 block">Toell AI</span>
+          <span className="text-xs text-[#7B2FBE] mt-2 block font-medium">Toell AI</span>
         </div>
       </div>
 
@@ -51,7 +51,7 @@ export function AiThinkingBubble() {
         {[80, 60, 72, 55].map((w, i) => (
           <div
             key={i}
-            className="h-3 bg-white/5 rounded-full animate-pulse"
+            className="h-3 bg-gray-200 rounded-full animate-pulse"
             style={{ width: `${w}%`, animationDelay: `${i * 120}ms` }}
           />
         ))}

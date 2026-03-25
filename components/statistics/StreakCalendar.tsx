@@ -14,8 +14,8 @@ export function StreakCalendar({ weeklyStats }: StreakCalendarProps) {
       <div className="flex gap-2 justify-center">
         {dayLabels.map((d) => (
           <div key={d} className="flex flex-col items-center gap-1">
-            <div className="w-9 h-9 rounded-xl bg-[#231448]" />
-            <span className="text-gray-500 text-xs">{d}</span>
+            <div className="w-9 h-9 rounded-xl bg-gray-100" />
+            <span className="text-gray-400 text-xs">{d}</span>
           </div>
         ))}
       </div>
@@ -42,10 +42,10 @@ export function StreakCalendar({ weeklyStats }: StreakCalendarProps) {
               className={cn(
                 'w-full aspect-square rounded-xl flex items-center justify-center text-sm font-bold',
                 isActive
-                  ? 'bg-violet-600 text-white'
+                  ? 'bg-[#7B2FBE] text-white'
                   : isPast
-                  ? 'bg-[#231448] text-gray-600'
-                  : 'bg-[#1A1035] border border-white/5 text-gray-700'
+                  ? 'bg-gray-100 text-gray-500'
+                  : 'bg-gray-50 border border-gray-200 text-gray-400'
               )}
             >
               {d.getDate()}

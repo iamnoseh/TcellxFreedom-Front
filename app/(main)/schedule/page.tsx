@@ -72,7 +72,7 @@ export default function SchedulePage() {
         ) : selectedPlans.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16 gap-3">
             <span className="text-4xl">📅</span>
-            <p className="text-gray-400 text-center">
+            <p className="text-gray-500 text-center">
               Ин рӯз нақша нест.
               <br />
               ИИ-нақшаи нав созед!
@@ -81,7 +81,7 @@ export default function SchedulePage() {
         ) : allDayTasks.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16 gap-3">
             <span className="text-4xl">✅</span>
-            <p className="text-gray-400 text-center">Ин рӯз вазифа нест.</p>
+            <p className="text-gray-500 text-center">Ин рӯз вазифа нест.</p>
           </div>
         ) : (
           <TimelineView
@@ -104,7 +104,7 @@ export default function SchedulePage() {
       {/* FAB */}
       <button
         onClick={() => setShowAddSheet(true)}
-        className="fixed bottom-24 right-5 w-14 h-14 bg-violet-600 rounded-full flex items-center justify-center shadow-lg shadow-violet-900/50 active:scale-95 transition-transform z-30"
+        className="fixed bottom-24 right-5 w-14 h-14 bg-[#7B2FBE] rounded-full flex items-center justify-center shadow-lg shadow-purple-300/50 active:scale-95 transition-transform z-30"
       >
         <span className="text-white text-2xl leading-none">+</span>
       </button>

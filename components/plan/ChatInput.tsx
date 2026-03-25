@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { Send } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
 
@@ -21,7 +20,7 @@ export function ChatInput({ value, onChange, onSend, disabled, placeholder }: Ch
   }
 
   return (
-    <div className="flex items-end gap-2 bg-[#1A1035] rounded-2xl p-3 border border-white/10">
+    <div className="flex items-end gap-2 bg-white rounded-2xl p-3 border border-gray-200 shadow-sm">
       <textarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -29,7 +28,7 @@ export function ChatInput({ value, onChange, onSend, disabled, placeholder }: Ch
         placeholder={placeholder ?? 'Мақсадатро нависед...'}
         disabled={disabled}
         rows={3}
-        className="flex-1 bg-transparent text-white placeholder-gray-500 resize-none outline-none text-sm leading-relaxed"
+        className="flex-1 bg-transparent text-gray-900 placeholder-gray-400 resize-none outline-none text-sm leading-relaxed"
       />
       <button
         onClick={onSend}
@@ -37,8 +36,8 @@ export function ChatInput({ value, onChange, onSend, disabled, placeholder }: Ch
         className={cn(
           'p-2.5 rounded-xl transition-all active:scale-95',
           value.trim() && !disabled
-            ? 'bg-violet-600 text-white hover:bg-violet-500'
-            : 'bg-[#231448] text-gray-500'
+            ? 'bg-[#7B2FBE] text-white hover:bg-[#6A27A8]'
+            : 'bg-gray-100 text-gray-400'
         )}
       >
         <Send size={18} />

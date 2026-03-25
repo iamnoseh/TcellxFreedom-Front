@@ -76,29 +76,29 @@ export default function AiPlanPage() {
         <PageHeader title="ИИ-Нақша" showAiBadge />
         <div className="flex-1 px-4 pt-2 pb-4 flex flex-col gap-4">
           <div>
-            <h2 className="text-xl font-bold text-white mb-1">Мақсадат чист?</h2>
-            <p className="text-gray-400 text-sm">Бигӯ — ИИ нақша месозад</p>
+            <h2 className="text-xl font-bold text-gray-900 mb-1">Нақшаи худро созед</h2>
+            <p className="text-gray-500 text-sm">Хоиш кун — ИИ нақша месозад</p>
           </div>
 
           {/* AI message bubble */}
-          <div className="bg-[#231448] rounded-2xl rounded-tl-sm p-4 max-w-[90%]">
-            <p className="text-gray-200 text-sm leading-relaxed">
-              Салом! Ман устоди шахсии шумо ҳастам 🎓
+          <div className="bg-white rounded-2xl rounded-tl-sm p-4 max-w-[90%] shadow-sm border border-gray-100">
+            <p className="text-gray-700 text-sm leading-relaxed">
+              Салом! Ман ёрдамчии ИИ-и Tcell ҳастам 🤖
               <br /><br />
-              Мақсадатро бигӯ — ман нақшаи комил месозам:
-              вақт, мавзӯ, хӯрок, машқ. Ҳар рӯз вазифаи нав!
+              Ба ман бигӯед чӣ мехоҳед ёд гиред ё анҷом диҳед —
+              ман барои шумо нақшаи гом-ба-гом бо вазифаҳои рӯзона месозам!
             </p>
-            <span className="text-xs text-violet-400 mt-2 block">Toell AI</span>
+            <span className="text-xs text-[#7B2FBE] mt-2 block font-medium">Tcell AI</span>
           </div>
 
           <div>
-            <p className="text-gray-400 text-xs mb-2">Намунаи суръат:</p>
+            <p className="text-gray-500 text-xs mb-2">Намунаи суръат:</p>
             <CategoryChips onSelect={handleCategorySelect} />
           </div>
 
           {/* Duration selector */}
           <div>
-            <p className="text-gray-400 text-xs mb-2">Давомнокии нақша:</p>
+            <p className="text-gray-500 text-xs mb-2">Давомнокии нақша:</p>
             <div className="flex flex-wrap gap-2">
               {DURATIONS.map((d, i) => (
                 <button
@@ -106,8 +106,8 @@ export default function AiPlanPage() {
                   onClick={() => setDurationIdx(i)}
                   className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
                     durationIdx === i
-                      ? 'bg-violet-600 text-white'
-                      : 'bg-[#1A1035] text-gray-400 border border-[#2D1F5E]'
+                      ? 'bg-[#7B2FBE] text-white'
+                      : 'bg-white text-gray-600 border border-gray-200 hover:border-[#7B2FBE]'
                   }`}
                 >
                   {d.label}
@@ -135,7 +135,7 @@ export default function AiPlanPage() {
             onChange={setText}
             onSend={handleSend}
             disabled={createPlan.isPending}
-            placeholder="Мақсадатро нависед..."
+            placeholder="Хоиши худро нависед..."
           />
         </div>
       </div>
@@ -161,12 +161,12 @@ export default function AiPlanPage() {
         <div className="px-4 pt-2 pb-4 space-y-3">
           {createdPlan && (
             <>
-              <div className="bg-[#1A1035] rounded-2xl p-4">
-                <h2 className="text-white font-bold text-lg mb-1">{createdPlan.title}</h2>
+              <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+                <h2 className="text-gray-900 font-bold text-lg mb-1">{createdPlan.title}</h2>
                 {createdPlan.description && (
-                  <p className="text-gray-400 text-sm mb-2">{createdPlan.description}</p>
+                  <p className="text-gray-500 text-sm mb-2">{createdPlan.description}</p>
                 )}
-                <div className="flex items-center gap-3 text-xs text-violet-400">
+                <div className="flex items-center gap-3 text-xs text-[#7B2FBE]">
                   <span>📋 {taskCount} вазифа</span>
                   {isMultiDay && startDate && endDate && (
                     <span>📅 {startDate} — {endDate}</span>
@@ -174,12 +174,12 @@ export default function AiPlanPage() {
                 </div>
               </div>
 
-              <h3 className="text-gray-300 text-sm font-medium">Вазифаҳо:</h3>
+              <h3 className="text-gray-600 text-sm font-medium">Вазифаҳо:</h3>
               {createdPlan.tasks.slice(0, 5).map((task, i) => (
                 <TaskItem key={task.id} task={task} index={i} />
               ))}
               {taskCount > 5 && (
-                <p className="text-gray-500 text-xs text-center py-2">
+                <p className="text-gray-400 text-xs text-center py-2">
                   +{taskCount - 5} вазифаи дигар дар рӯзнома
                 </p>
               )}
@@ -201,11 +201,11 @@ export default function AiPlanPage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-4">
       <div className="text-center space-y-4">
-        <div className="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto">
+        <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto">
           <span className="text-4xl">✅</span>
         </div>
-        <h2 className="text-2xl font-bold text-white">Нақша сохта шуд!</h2>
-        <p className="text-gray-400">Нақшаи шумо бо муваффақият сохта шуд.</p>
+        <h2 className="text-2xl font-bold text-gray-900">Нақша сохта шуд!</h2>
+        <p className="text-gray-500">Нақшаи шумо бо муваффақият сохта шуд.</p>
         <Button onClick={() => router.push('/schedule')}>
           Рӯзноманро бинед
         </Button>

@@ -24,7 +24,7 @@ export function CategoryChips({ onSelect }: CategoryChipsProps) {
           onClick={() => onSelect(cat.prompt)}
           className={cn(
             'px-3 py-1.5 rounded-full text-sm font-medium border transition-all active:scale-95',
-            'border-violet-500/40 text-violet-300 bg-violet-500/10 hover:bg-violet-500/20'
+            'border-purple-200 text-[#7B2FBE] bg-purple-50 hover:bg-purple-100'
           )}
         >
           {cat.label}
