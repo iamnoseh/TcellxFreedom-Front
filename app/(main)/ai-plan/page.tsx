@@ -77,7 +77,6 @@ export default function AiPlanPage() {
         <div className="flex-1 px-4 pt-2 pb-4 flex flex-col gap-4">
           <div>
             <h2 className="text-xl font-bold text-gray-900 mb-1">Нақшаи худро созед</h2>
-            <p className="text-gray-500 text-sm">Хоиш кун — ИИ нақша месозад</p>
           </div>
 
           {/* AI message bubble */}
@@ -86,7 +85,7 @@ export default function AiPlanPage() {
               Салом! Ман ёрдамчии ИИ-и Tcell ҳастам 🤖
               <br /><br />
               Ба ман бигӯед чӣ мехоҳед ёд гиред ё анҷом диҳед —
-              ман барои шумо нақшаи гом-ба-гом бо вазифаҳои рӯзона месозам!
+              ман барои шумо нақшаи қадам-ба-қадам бо вазифаҳои рӯзона месозам!
             </p>
             <span className="text-xs text-[#7B2FBE] mt-2 block font-medium">Tcell AI</span>
           </div>
