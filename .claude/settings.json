@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const l = require\\(''lucide-react''\\); console.log\\(''Mic'' in l, ''MicOff'' in l\\)\")"
+    ]
+  }
+}

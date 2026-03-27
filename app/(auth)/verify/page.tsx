@@ -35,7 +35,7 @@ export default function VerifyPage() {
       router.replace('/')
     } catch (err: unknown) {
       const e = err as { response?: { data?: { message?: string } } }
-      setError(e?.response?.data?.message ?? 'Хатогӣ рӯй дод. Дубора кӯшиш кунед.')
+      setError(e?.response?.data?.message ?? 'Произошла ошибка. Попробуйте снова.')
     } finally {
       setLoading(false)
     }
@@ -47,17 +47,16 @@ export default function VerifyPage() {
         <div className="w-16 h-16 rounded-2xl bg-violet-600 flex items-center justify-center mx-auto mb-4">
           <span className="text-2xl">🔐</span>
         </div>
-        <h1 className="text-3xl font-bold text-white mb-2">Рамзро ворид кун</h1>
+        <h1 className="text-3xl font-bold text-white mb-2">Введите код</h1>
         <p className="text-gray-400">
-          Рамзи тасдиқ ба рақами
+          Код подтверждения отправлен на номер
         </p>
         <p className="text-violet-300 font-medium mt-1">{phone}</p>
-        <p className="text-gray-400">фиристода шуд</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm text-gray-400 mb-2">Рамзи тасдиқ</label>
+          <label className="block text-sm text-gray-400 mb-2">Код подтверждения</label>
           <input
             type="text"
             value={otp}
@@ -79,7 +78,7 @@ export default function VerifyPage() {
         )}
 
         <Button type="submit" loading={loading} disabled={otp.length < 4}>
-          Тасдиқ кун
+          Подтвердить
         </Button>
 
         <button
@@ -87,7 +86,7 @@ export default function VerifyPage() {
           onClick={() => router.push('/login')}
           className="w-full text-center text-violet-400 text-sm py-2"
         >
-          Рақамро тағйир деҳ
+          Изменить номер
         </button>
       </form>
     </div>

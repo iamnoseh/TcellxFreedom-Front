@@ -54,7 +54,7 @@ export default function TcellPassPage() {
             tab === 'quest' ? 'bg-[#7B2FBE] text-white shadow' : 'text-gray-500 hover:text-gray-700'
           }`}
         >
-          Квесто
+          Квесты
         </button>
         <button
           onClick={() => setTab('rewards')}
@@ -62,7 +62,7 @@ export default function TcellPassPage() {
             tab === 'rewards' ? 'bg-[#7B2FBE] text-white shadow' : 'text-gray-500 hover:text-gray-700'
           }`}
         >
-          🏆 Чоизаҳо
+          🏆 Награды
         </button>
       </div>
 
@@ -78,11 +78,11 @@ export default function TcellPassPage() {
               <div className="flex items-center gap-2">
                 <Flame size={16} className="text-orange-500" />
                 <span className="text-gray-800 text-sm font-semibold">
-                  Streak: {freeCompleted}/{freeTasks.length} вазифа
+                  Streak: {freeCompleted}/{freeTasks.length} задач
                 </span>
               </div>
               <span className="text-[#7B2FBE] text-xs font-medium">
-                {freeTasks.length} вазифа → +30 XP
+                {freeTasks.length} задач → +30 XP
               </span>
             </div>
           )}
@@ -90,13 +90,13 @@ export default function TcellPassPage() {
           {/* Free daily tasks */}
           <div className="mx-4 bg-white rounded-2xl overflow-hidden mb-3 shadow-sm">
             <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100">
-              <span className="text-gray-800 font-semibold text-sm">Вазифаҳои рӯзона</span>
+              <span className="text-gray-800 font-semibold text-sm">Ежедневные задачи</span>
               <span className="text-gray-400 text-xs">{freeCompleted}/{freeTasks.length}</span>
             </div>
             {freeTasks.length === 0 ? (
               <div className="px-4 py-6 text-center">
-                <p className="text-gray-500 text-sm">Вазифаҳо барои имрӯз тайёр нестанд</p>
-                <p className="text-gray-400 text-xs mt-1">Фардо ояд!</p>
+                <p className="text-gray-500 text-sm">Задачи на сегодня ещё не готовы</p>
+                <p className="text-gray-400 text-xs mt-1">Заходите завтра!</p>
               </div>
             ) : (
               <div className="divide-y divide-gray-50">
@@ -116,7 +116,7 @@ export default function TcellPassPage() {
           <div className="mx-4 bg-white rounded-2xl overflow-hidden mb-4 shadow-sm">
             <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100">
               <span className="text-orange-500 font-semibold text-sm flex items-center gap-1.5">
-                ⭐ Premium вазифаҳо
+                ⭐ Premium задачи
               </span>
               <span className="text-gray-400 text-xs">
                 {pass.tier === 'Premium' ? `${premCompleted}/${premTasks.length}` : '0/2'}
@@ -138,8 +138,8 @@ export default function TcellPassPage() {
               /* Locked premium tasks preview */
               <div>
                 {[
-                  { title: 'Ajoib TV тамошо кун', xp: 100 },
-                  { title: 'Дӯстро даъват кун', xp: 50 },
+                  { title: 'Смотри Ajoib TV', xp: 100 },
+                  { title: 'Пригласи друга', xp: 50 },
                 ].map((t) => (
                   <div key={t.title} className="flex items-center gap-3 px-4 py-3 opacity-60">
                     <div className="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center">
@@ -147,7 +147,7 @@ export default function TcellPassPage() {
                     </div>
                     <div className="flex-1">
                       <p className="text-gray-500 text-sm">{t.title}</p>
-                      <p className="text-orange-400 text-xs">Танҳо Premium</p>
+                      <p className="text-orange-400 text-xs">Только Premium</p>
                     </div>
                   </div>
                 ))}
@@ -156,7 +156,7 @@ export default function TcellPassPage() {
                   onClick={() => setShowPremium(true)}
                   className="w-full flex items-center justify-center gap-2 py-3 text-orange-500 text-sm font-semibold border-t border-gray-100 hover:bg-orange-50 transition-colors active:scale-95"
                 >
-                  ⚡ Премиум олинд — 19 с./мох
+                  ⚡ Получить Premium — 19 сом/мес
                   <ChevronRight size={16} />
                 </button>
               </div>
@@ -170,8 +170,8 @@ export default function TcellPassPage() {
               className="mx-4 w-[calc(100%-2rem)] bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl px-4 py-3 flex items-center justify-between active:scale-95 shadow-md"
             >
               <div>
-                <p className="text-white font-semibold text-sm">⚡ Премиум фаъол кунед</p>
-                <p className="text-white/70 text-xs mt-0.5">XP ×2 + 5 вазифа / рӯз</p>
+                <p className="text-white font-semibold text-sm">⚡ Активировать Premium</p>
+                <p className="text-white/70 text-xs mt-0.5">XP ×2 + 5 задач / день</p>
               </div>
               <ChevronRight size={18} className="text-white" />
             </button>

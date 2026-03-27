@@ -6,11 +6,11 @@ import { Home, Sparkles, Calendar, Flame, Bell } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
 
 const tabs = [
-  { href: '/', icon: Home, label: 'Хона', exact: true },
-  { href: '/ai-plan', icon: Sparkles, label: 'ИИ-Нақша', exact: false },
+  { href: '/', icon: Home, label: 'Главная', exact: true },
+  { href: '/ai-plan', icon: Sparkles, label: 'AI-План', exact: false },
   { href: '/tcell-pass', icon: Flame, label: 'Пасс', exact: false },
-  { href: '/schedule', icon: Calendar, label: 'Рӯзнома', exact: false },
-  { href: '/notifications', icon: Bell, label: 'Хабарҳо', exact: false },
+  { href: '/schedule', icon: Calendar, label: 'Расписание', exact: false },
+  { href: '/notifications', icon: Bell, label: 'Уведомления', exact: false },
 ]
 
 export function BottomNav() {

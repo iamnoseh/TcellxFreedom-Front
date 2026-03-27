@@ -25,7 +25,7 @@ export function TimelineView({ tasks, onComplete, onSkip, isLoading }: TimelineV
   if (tasks.length === 0) {
     return (
       <div className="text-gray-400 text-sm text-center py-8">
-        Ин рӯз вазифа нест
+        На этот день задач нет
       </div>
     )
   }
@@ -92,7 +92,7 @@ export function TimelineView({ tasks, onComplete, onSkip, isLoading }: TimelineV
                       <span>{formatTime(task.scheduledAt)}</span>
                       <div className="flex items-center gap-1">
                         <Clock size={10} />
-                        <span>{task.estimatedMinutes} дақ.</span>
+                        <span>{task.estimatedMinutes} мин.</span>
                       </div>
                     </div>
                   </div>

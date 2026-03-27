@@ -38,7 +38,7 @@ export function PassHeader({ pass }: PassHeaderProps) {
 
       {/* Level + progress */}
       <div className="flex items-center justify-between mb-1.5">
-        <span className="text-white/80 text-sm">Дараҷа {pass.currentLevel}</span>
+        <span className="text-white/80 text-sm">Уровень {pass.currentLevel}</span>
         <span className="text-white/70 text-sm">
           {pass.totalXp} / {levelEndXp} XP
         </span>
@@ -55,7 +55,7 @@ export function PassHeader({ pass }: PassHeaderProps) {
         <div className="flex items-center gap-1.5 mt-3">
           <Flame size={15} className="text-orange-300" />
           <span className="text-orange-200 text-sm font-semibold">
-            Streak {pass.currentStreakDays} рӯз
+            Streak {pass.currentStreakDays} дн.
           </span>
         </div>
       )}

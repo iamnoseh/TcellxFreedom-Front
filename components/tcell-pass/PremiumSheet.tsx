@@ -8,8 +8,8 @@ interface PremiumSheetProps {
   onSuccess: () => void
 }
 
-const FREE_FEATURES = ['XP стандарт', '3 вазифа / рӯз', 'Free track', 'Чоизаҳои асосӣ']
-const PREM_FEATURES = ['XP ×2 ҳамеша', '+2 вазифа / рӯз', 'XP 2 трек кушода', 'Чоизаҳои тиллоӣ']
+const FREE_FEATURES = ['Стандартный XP', '3 задачи / день', 'Free track', 'Базовые награды']
+const PREM_FEATURES = ['XP ×2 всегда', '+2 задачи / день', '2 XP-трека открыто', 'Золотые награды']
 
 export function PremiumSheet({ onClose, onSuccess }: PremiumSheetProps) {
   const { mutate: activate, isPending, error } = useActivatePremium()
@@ -34,7 +34,7 @@ export function PremiumSheet({ onClose, onSuccess }: PremiumSheetProps) {
         <div className="text-center mb-5">
           <div className="text-3xl mb-1">⚡</div>
           <h2 className="text-gray-900 font-bold text-xl">Tcell Premium Pass</h2>
-          <p className="text-gray-500 text-sm mt-1">XP мох → XP ×2 + чоизаҳои кодир</p>
+          <p className="text-gray-500 text-sm mt-1">XP ×2 + мощные награды каждый месяц</p>
         </div>
 
         {/* Comparison */}
@@ -71,14 +71,14 @@ export function PremiumSheet({ onClose, onSuccess }: PremiumSheetProps) {
         {/* Price */}
         <div className="text-center mb-4">
           <span className="text-gray-900 font-bold text-4xl">19</span>
-          <span className="text-gray-500 text-lg"> с.</span>
-          <span className="text-gray-400 text-sm"> / мох</span>
-          <p className="text-gray-400 text-xs mt-1">ҳар вақт бекор кардан мумкин</p>
+          <span className="text-gray-500 text-lg"> сом</span>
+          <span className="text-gray-400 text-sm"> / мес</span>
+          <p className="text-gray-400 text-xs mt-1">можно отменить в любое время</p>
         </div>
 
         {error && (
           <p className="text-red-400 text-xs text-center mb-3">
-            Балансатон кофӣ нест ё хатогӣ рӯй дод
+            Недостаточно баланса или произошла ошибка
           </p>
         )}
 
@@ -91,12 +91,12 @@ export function PremiumSheet({ onClose, onSuccess }: PremiumSheetProps) {
           {isPending ? (
             <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
           ) : (
-            <>⚡ Premium фаъол кун</>
+            <>⚡ Активировать Premium</>
           )}
         </button>
 
         <button onClick={onClose} className="w-full text-gray-400 text-sm mt-3 py-2 hover:text-gray-600">
-          Бадтар
+          Не сейчас
         </button>
       </div>
     </div>

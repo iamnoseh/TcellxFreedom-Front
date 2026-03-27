@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
-const BACKEND_URL = "https://tcellxfreedom-git-227323021876.europe-west1.run.app";
+const BACKEND_URL = "http://localhost:3055";
 
 const nextConfig: NextConfig = {
+  allowedDevOrigins: ['192.168.0.103'],
   async rewrites() {
     return [
       {

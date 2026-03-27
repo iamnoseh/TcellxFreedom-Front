@@ -20,11 +20,11 @@ export interface VerifyResponseData {
 }
 
 export async function loginApi(data: LoginRequest): Promise<ApiResponse<LoginResponse>> {
-  const res = await apiClient.post<ApiResponse<LoginResponse>>('/api/auth/login', data)
+  const res = await apiClient.post<ApiResponse<LoginResponse>>('/auth/login', data)
   return res.data
 }
 
 export async function verifyOtpApi(data: VerifyRequest): Promise<VerifyResponseData> {
-  const res = await apiClient.post<VerifyResponseData>('/api/auth/verify', data)
+  const res = await apiClient.post<VerifyResponseData>('/auth/verify', data)
   return res.data
 }

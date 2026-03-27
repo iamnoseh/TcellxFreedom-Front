@@ -27,53 +27,53 @@ export default function StatisticsPage() {
 
   // Simulate category breakdown from total tasks
   const categoryData = [
-    { label: 'Кор', value: Math.floor(completedTasks * 0.4), max: Math.floor(totalTasks * 0.4) },
-    { label: 'Варзиш', value: Math.floor(completedTasks * 0.3), max: Math.floor(totalTasks * 0.3) },
-    { label: 'Таҳсил', value: Math.floor(completedTasks * 0.3), max: Math.floor(totalTasks * 0.3) },
+    { label: 'Работа', value: Math.floor(completedTasks * 0.4), max: Math.floor(totalTasks * 0.4) },
+    { label: 'Спорт', value: Math.floor(completedTasks * 0.3), max: Math.floor(totalTasks * 0.3) },
+    { label: 'Учёба', value: Math.floor(completedTasks * 0.3), max: Math.floor(totalTasks * 0.3) },
   ]
 
   return (
     <div className="flex flex-col min-h-[calc(100vh-80px)]">
-      <PageHeader title="Пешрафт" subtitle="4 ҳафтаи охир" />
+      <PageHeader title="Прогресс" subtitle="Последние 4 недели" />
 
       <div className="px-4 space-y-5">
         {/* Stat cards */}
         <div className="grid grid-cols-2 gap-3">
           <StatCard
-            label="Ҳамаи вазифаҳо"
+            label="Всего задач"
             value={totalTasks}
-            sub="4 ҳафта"
+            sub="4 недели"
             color="violet"
           />
           <StatCard
-            label="Иҷро шуд"
+            label="Выполнено"
             value={completedTasks}
-            sub={`${avgCompletion}% иҷро`}
+            sub={`${avgCompletion}% выполнено`}
             color="green"
           />
           <StatCard
-            label="Гузаронида шуд"
+            label="Пропущено"
             value={skippedTasks}
             color="orange"
           />
           <StatCard
-            label="Ҳафтаи ҷорӣ"
+            label="Текущая неделя"
             value={latestWeek ? `${latestWeek.completedTasks}/${latestWeek.totalTasks}` : '—'}
-            sub="вазифа"
+            sub="задач"
             color="blue"
           />
         </div>
 
         {/* Streak calendar */}
         <Card>
-          <h3 className="text-sm font-semibold text-gray-700 mb-3">Ҳафтаи ҷорӣ</h3>
+          <h3 className="text-sm font-semibold text-gray-700 mb-3">Текущая неделя</h3>
           <StreakCalendar weeklyStats={weeklyStats} />
         </Card>
 
         {/* Category bars */}
         {totalTasks > 0 && (
           <Card>
-            <h3 className="text-sm font-semibold text-gray-700 mb-3">Категорияҳо</h3>
+            <h3 className="text-sm font-semibold text-gray-700 mb-3">Категории</h3>
             <CategoryBars categories={categoryData} />
           </Card>
         )}
@@ -82,7 +82,7 @@ export default function StatisticsPage() {
         {statistics?.aiSuggestions && statistics.aiSuggestions.length > 0 && (
           <Card className="border border-orange-200">
             <div className="flex items-center gap-2 mb-3">
-              <h3 className="text-sm font-semibold text-gray-700">Маслиҳатҳои AI</h3>
+              <h3 className="text-sm font-semibold text-gray-700">Советы AI</h3>
               <AiBadge />
             </div>
             <div className="space-y-2">

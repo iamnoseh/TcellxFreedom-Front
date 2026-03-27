@@ -11,8 +11,8 @@ import { loginApi } from '@/lib/api/auth.api'
 const schema = z.object({
   phone: z
     .string()
-    .min(9, 'Рақами телефон нодуруст аст')
-    .regex(/^[0-9]+$/, 'Танҳо рақам'),
+    .min(9, 'Неверный номер телефона')
+    .regex(/^[0-9]+$/, 'Только цифры'),
 })
 
 type FormData = z.infer<typeof schema>
@@ -38,7 +38,7 @@ export default function LoginPage() {
       router.push('/verify')
     } catch (err: unknown) {
       const e = err as { response?: { data?: { message?: string } } }
-      setError(e?.response?.data?.message ?? 'Хатогӣ рӯй дод. Дубора кӯшиш кунед.')
+      setError(e?.response?.data?.message ?? 'Произошла ошибка. Попробуйте снова.')
     }
   }
 
@@ -48,13 +48,13 @@ export default function LoginPage() {
         <div className="w-16 h-16 rounded-2xl bg-violet-600 flex items-center justify-center mx-auto mb-4">
           <span className="text-2xl font-bold text-white">T</span>
         </div>
-        <h1 className="text-3xl font-bold text-white mb-2">Хуш омадед</h1>
-        <p className="text-gray-400">Рақами телефони худро ворид кунед</p>
+        <h1 className="text-3xl font-bold text-white mb-2">Добро пожаловать</h1>
+        <p className="text-gray-400">Введите ваш номер телефона</p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
-          <label className="block text-sm text-gray-400 mb-2">Рақами телефон</label>
+          <label className="block text-sm text-gray-400 mb-2">Номер телефона</label>
           <div className="flex items-center bg-[#1A1035] border border-white/10 rounded-xl overflow-hidden focus-within:border-violet-500 transition-colors">
             <span className="px-4 py-3 text-gray-300 font-medium border-r border-white/10 bg-[#231448] flex-shrink-0">
               +992
@@ -79,7 +79,7 @@ export default function LoginPage() {
         )}
 
         <Button type="submit" loading={isSubmitting}>
-          Идома
+          Продолжить
         </Button>
       </form>
     </div>

@@ -14,9 +14,9 @@ const statusColors: Record<string, string> = {
 }
 
 const statusLabels: Record<string, string> = {
-  Pending: 'Интизор',
-  Sent: 'Фиристода шуд',
-  Failed: 'Хатогӣ',
+  Pending: 'Ожидание',
+  Sent: 'Отправлено',
+  Failed: 'Ошибка',
 }
 
 export default function NotificationsPage() {
@@ -24,19 +24,19 @@ export default function NotificationsPage() {
 
   return (
     <div className="flex flex-col min-h-[calc(100vh-80px)]">
-      <PageHeader title="Хабарҳо" />
+      <PageHeader title="Уведомления" />
 
       <div className="px-4 space-y-3">
         {isLoading ? (
           <FullPageSpinner />
         ) : error ? (
-          <div className="text-red-400 text-center py-8">Хабарҳо бор нашуданд</div>
+          <div className="text-red-400 text-center py-8">Не удалось загрузить уведомления</div>
         ) : notifications.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16 gap-3">
             <div className="w-16 h-16 rounded-2xl bg-gray-100 flex items-center justify-center">
               <Bell size={28} className="text-gray-400" />
             </div>
-            <p className="text-gray-500 text-center">Хабар нест</p>
+            <p className="text-gray-500 text-center">Нет уведомлений</p>
           </div>
         ) : (
           notifications.map((notif) => (

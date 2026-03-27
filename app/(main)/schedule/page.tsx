@@ -60,7 +60,7 @@ export default function SchedulePage() {
   return (
     <div className="flex flex-col min-h-[calc(100vh-80px)]">
       <PageHeader
-        title="Рӯзнома"
+        title="Расписание"
         subtitle={selectedDate.toLocaleDateString('ru-RU', { weekday: 'long', day: 'numeric', month: 'long' })}
       />
 
@@ -73,15 +73,15 @@ export default function SchedulePage() {
           <div className="flex flex-col items-center justify-center py-16 gap-3">
             <span className="text-4xl">📅</span>
             <p className="text-gray-500 text-center">
-              Ин рӯз нақша нест.
+              На этот день нет плана.
               <br />
-              ИИ-нақшаи нав созед!
+              Создайте новый AI-план!
             </p>
           </div>
         ) : allDayTasks.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16 gap-3">
             <span className="text-4xl">✅</span>
-            <p className="text-gray-500 text-center">Ин рӯз вазифа нест.</p>
+            <p className="text-gray-500 text-center">На этот день задач нет.</p>
           </div>
         ) : (
           <TimelineView

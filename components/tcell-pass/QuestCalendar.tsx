@@ -1,9 +1,9 @@
 import { Check } from 'lucide-react'
 
 const MONTHS_TJ: Record<number, string> = {
-  0: 'Январ', 1: 'Феврал', 2: 'Март', 3: 'Апрел',
-  4: 'Май', 5: 'Июн', 6: 'Июл', 7: 'Август',
-  8: 'Сентябр', 9: 'Октябр', 10: 'Ноябр', 11: 'Декабр',
+  0: 'Январь', 1: 'Февраль', 2: 'Март', 3: 'Апрель',
+  4: 'Май', 5: 'Июнь', 6: 'Июль', 7: 'Август',
+  8: 'Сентябрь', 9: 'Октябрь', 10: 'Ноябрь', 11: 'Декабрь',
 }
 
 interface QuestCalendarProps {
@@ -26,7 +26,7 @@ export function QuestCalendar({ currentDay, totalDays = 20 }: QuestCalendarProps
           <span className="text-lg">🌸</span>
         </div>
         <div>
-          <p className="text-gray-800 font-semibold text-sm">Моҳи {monthName}</p>
+          <p className="text-gray-800 font-semibold text-sm">{monthName}</p>
           <p className="text-gray-400 text-xs">{monthName} {year}</p>
         </div>
       </div>

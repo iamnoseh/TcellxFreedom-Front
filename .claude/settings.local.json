@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed -i \"s|''/api/tcell-pass/|''/tcell-pass/|g; s|\\\\`/api/tcell-pass/|\\\\`/tcell-pass/|g\" c:/Users/HP/Desktop/tcellx-frontend/lib/api/tcell-pass.api.ts)",
+      "Bash(sed -i \"s|''/api/plan|''/plan|g; s|\\\\`/api/plan|\\\\`/plan|g\" c:/Users/HP/Desktop/tcellx-frontend/lib/api/plans.api.ts)",
+      "Bash(sed -i \"s|''/api/user/|''/user/|g\" c:/Users/HP/Desktop/tcellx-frontend/lib/api/user.api.ts)",
+      "Bash(sed -i \"s|''/api/statistics|''/statistics|g; s|\\\\`/api/statistics|\\\\`/statistics|g\" c:/Users/HP/Desktop/tcellx-frontend/lib/api/statistics.api.ts)",
+      "Bash(sed -i \"s|''/api/notification/|''/notification/|g\" c:/Users/HP/Desktop/tcellx-frontend/lib/api/notifications.api.ts)"
+    ]
+  }
+}

@@ -3,7 +3,7 @@
 import { getNext7Days, isSameDay } from '@/lib/utils/date'
 import { cn } from '@/lib/utils/cn'
 
-const dayNames = ['Яш', 'Д', 'С', 'Ч', 'П', 'Ҷ', 'Ш']
+const dayNames = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
 
 interface DayTabsProps {
   selectedDate: Date

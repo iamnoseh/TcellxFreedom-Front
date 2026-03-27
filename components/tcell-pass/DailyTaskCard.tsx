@@ -58,7 +58,7 @@ export function DailyTaskCard({ task, onComplete, isLoading }: DailyTaskCardProp
           {task.title}
         </p>
         {isLocked && (
-          <p className="text-orange-400 text-xs font-medium mt-0.5">Танҳо Премиум</p>
+          <p className="text-orange-400 text-xs font-medium mt-0.5">Только Premium</p>
         )}
         {!isLocked && (
           <p className={cn('text-xs mt-0.5', isDone ? 'text-[#7B2FBE]' : 'text-gray-400')}>

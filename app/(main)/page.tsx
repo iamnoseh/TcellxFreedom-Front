@@ -17,9 +17,9 @@ function formatTaskDate(iso: string) {
   const isToday = d.toDateString() === now.toDateString()
   const tomorrow = new Date(now); tomorrow.setDate(now.getDate() + 1)
   const isTomorrow = d.toDateString() === tomorrow.toDateString()
-  if (isToday) return 'Имрӯз'
-  if (isTomorrow) return 'Фардо'
-  return d.toLocaleDateString('tg-TJ', { day: 'numeric', month: 'short' })
+  if (isToday) return 'Сегодня'
+  if (isTomorrow) return 'Завтра'
+  return d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' })
 }
 
 function formatTime(iso: string) {
@@ -39,7 +39,7 @@ function NearestTasksSection({ plans }: { plans: PlanDto[] }) {
     .slice(0, 5)
 
   if (allTasks.length === 0) {
-    return <p className="text-gray-400 text-sm text-center py-4">Вазифаҳои наздик нест</p>
+    return <p className="text-gray-400 text-sm text-center py-4">Нет ближайших задач</p>
   }
 
   return (
@@ -89,8 +89,8 @@ export default function HomePage() {
               {initials}
             </div>
             <div>
-              <p className="text-white/60 text-xs">Рӯз хайр,</p>
-              <p className="text-white font-bold text-base leading-tight">{user?.firstName ?? 'Корбар'}</p>
+              <p className="text-white/60 text-xs">Добрый день,</p>
+              <p className="text-white font-bold text-base leading-tight">{user?.firstName ?? 'Пользователь'}</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -110,7 +110,7 @@ export default function HomePage() {
         <div className="bg-[#1A0845]/60 backdrop-blur rounded-3xl p-5 border border-white/10">
           <p className="text-white/50 text-xs mb-1">Баланс</p>
           <div className="flex items-center gap-2 mb-1">
-            <p className="text-white font-bold text-3xl">{balance.toFixed(2)} смн</p>
+            <p className="text-white font-bold text-3xl">{balance.toFixed(2)} сом</p>
             <button className="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center ml-1">
               <Plus size={14} className="text-white" />
             </button>
@@ -134,16 +134,16 @@ export default function HomePage() {
           <div className="flex items-center justify-between mb-0.5">
             <p className="text-gray-900 font-bold text-base">Салом+ 130</p>
             <button className="flex items-center gap-0.5 text-gray-400 text-xs">
-              Ҳама тарифҳо <ChevronRight size={14} />
+              Все тарифы <ChevronRight size={14} />
             </button>
           </div>
-          <p className="text-[#7B2FBE] text-xs mb-4">Пардохти моҳона: 01.04.2026</p>
+          <p className="text-[#7B2FBE] text-xs mb-4">Ежемесячный платёж: 01.04.2026</p>
 
           {/* MB / Minutes / SMS */}
           <div className="grid grid-cols-3 gap-2 mb-4">
             {[
               { label: 'МБ', value: '53 650', pct: 72 },
-              { label: 'Дақиқа', value: '22', pct: 18 },
+              { label: 'Минуты', value: '22', pct: 18 },
               { label: 'СМС', value: '79', pct: 85 },
             ].map(({ label, value, pct }) => (
               <div key={label} className="bg-gray-50 rounded-xl p-3">
@@ -160,19 +160,19 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-2">
             <button className="flex items-center justify-center gap-2 bg-gray-50 rounded-xl py-2.5 text-gray-700 text-sm font-medium">
               <Grid2x2 size={15} className="text-gray-500" />
-              Хизматҳо
+              Услуги
             </button>
             <button className="flex items-center justify-center gap-2 bg-gray-50 rounded-xl py-2.5 text-gray-700 text-sm font-medium">
               <PieChart size={15} className="text-gray-500" />
-              Харочот
+              Расходы
             </button>
           </div>
         </div>
 
         {/* Тафсилот (demo) */}
         <div className="bg-white rounded-2xl p-4 shadow-sm">
-          <p className="text-gray-900 font-semibold text-sm mb-0.5">Тафсилот</p>
-          <p className="text-gray-400 text-xs mb-3">Рӯйхати тамоми зангҳои воридӣ ва содирӣ</p>
+          <p className="text-gray-900 font-semibold text-sm mb-0.5">Детализация</p>
+          <p className="text-gray-400 text-xs mb-3">Список всех входящих и исходящих звонков</p>
           <button className="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center">
             <Phone size={18} className="text-[#7B2FBE]" />
           </button>
@@ -188,7 +188,7 @@ export default function HomePage() {
               <div>
                 <p className="text-white font-bold text-sm">Tcell Pass</p>
                 <p className="text-white/70 text-xs">
-                  {pass?.tier === 'Premium' ? '⭐ Premium' : 'Free'} · Дараҷа {level}
+                  {pass?.tier === 'Premium' ? '⭐ Premium' : 'Free'} · Уровень {level}
                 </p>
               </div>
             </div>
@@ -196,7 +196,7 @@ export default function HomePage() {
               {(pass?.currentStreakDays ?? 0) > 0 && (
                 <div className="flex items-center gap-1 bg-orange-400/30 rounded-lg px-2 py-1">
                   <Flame size={11} className="text-orange-200" />
-                  <span className="text-orange-200 text-xs font-bold">{pass!.currentStreakDays} рӯз</span>
+                  <span className="text-orange-200 text-xs font-bold">{pass!.currentStreakDays} дн.</span>
                 </div>
               )}
               <ChevronRight size={16} className="text-white/50" />
@@ -221,12 +221,12 @@ export default function HomePage() {
                 <Sparkles size={24} className="text-orange-500" />
               </div>
               <div>
-                <p className="text-gray-900 font-bold text-sm">ИИ-Нақшасоз</p>
-                <p className="text-gray-500 text-xs mt-0.5">Мақсадатро бигӯ — AI нақша месозад</p>
+                <p className="text-gray-900 font-bold text-sm">AI-Планировщик</p>
+                <p className="text-gray-500 text-xs mt-0.5">Скажи цель — AI составит план</p>
               </div>
             </div>
             <div className="bg-[#7B2FBE] rounded-xl px-3 py-2 flex-shrink-0">
-              <span className="text-white text-xs font-bold">Созед →</span>
+              <span className="text-white text-xs font-bold">Создать →</span>
             </div>
           </div>
         </Link>
@@ -238,8 +238,8 @@ export default function HomePage() {
               <Calendar size={20} className="text-blue-600" />
             </div>
             <div>
-              <p className="text-gray-800 font-semibold text-sm">Рӯзнома</p>
-              <p className="text-gray-400 text-xs">{totalTasks > 0 ? `${completedTasks}/${totalTasks}` : 'Холӣ'}</p>
+              <p className="text-gray-800 font-semibold text-sm">Расписание</p>
+              <p className="text-gray-400 text-xs">{totalTasks > 0 ? `${completedTasks}/${totalTasks}` : 'Пусто'}</p>
             </div>
           </Link>
           <Link href="/statistics" className="bg-white rounded-2xl p-4 shadow-sm flex items-center gap-3 active:scale-95 transition-transform">
@@ -247,8 +247,8 @@ export default function HomePage() {
               <BarChart2 size={20} className="text-emerald-600" />
             </div>
             <div>
-              <p className="text-gray-800 font-semibold text-sm">Омор</p>
-              <p className="text-gray-400 text-xs">{plans.length} нақша</p>
+              <p className="text-gray-800 font-semibold text-sm">Статистика</p>
+              <p className="text-gray-400 text-xs">{plans.length} план</p>
             </div>
           </Link>
         </div>
@@ -257,8 +257,8 @@ export default function HomePage() {
         <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
           <div className="flex items-center justify-between px-4 py-3 border-b border-gray-50">
             <div>
-              <p className="text-gray-900 font-semibold text-sm">Вазифаҳои наздик</p>
-              <p className="text-gray-400 text-xs">Рӯйхати вазифаҳои имрӯз</p>
+              <p className="text-gray-900 font-semibold text-sm">Ближайшие задачи</p>
+              <p className="text-gray-400 text-xs">Список задач на сегодня</p>
             </div>
             <Link href="/schedule">
               <ChevronRight size={18} className="text-gray-400" />

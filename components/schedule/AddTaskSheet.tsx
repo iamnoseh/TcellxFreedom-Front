@@ -43,17 +43,17 @@ export function AddTaskSheet({ selectedDate, onClose, onSubmit, isLoading }: Pro
       {/* Sheet — pb-[90px] to clear the bottom nav bar */}
       <div className="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-2xl px-5 pt-4 pb-[90px] space-y-4 shadow-2xl">
         <div className="w-10 h-1 bg-gray-200 rounded-full mx-auto" />
-        <h3 className="text-gray-900 font-semibold text-lg">Вазифаи нав</h3>
+        <h3 className="text-gray-900 font-semibold text-lg">Новая задача</h3>
 
         {/* Title */}
         <div>
-          <label className="text-gray-500 text-xs mb-1 block">Унвон</label>
+          <label className="text-gray-500 text-xs mb-1 block">Название</label>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
-            placeholder="Вазифаро нависед..."
+            placeholder="Введите задачу..."
             className="w-full bg-gray-50 text-gray-900 rounded-xl px-4 py-3 text-sm outline-none border border-gray-200 focus:border-[#7B2FBE]"
             autoFocus
           />
@@ -62,7 +62,7 @@ export function AddTaskSheet({ selectedDate, onClose, onSubmit, isLoading }: Pro
         {/* Time + Duration on one row */}
         <div className="flex gap-3">
           <div className="flex-1">
-            <label className="text-gray-500 text-xs mb-1 block">Вақт</label>
+            <label className="text-gray-500 text-xs mb-1 block">Время</label>
             <div className="flex items-center gap-1.5">
               <input
                 type="number"
@@ -86,7 +86,7 @@ export function AddTaskSheet({ selectedDate, onClose, onSubmit, isLoading }: Pro
           </div>
 
           <div className="flex-1">
-            <label className="text-gray-500 text-xs mb-1 block">Давомнокӣ (дақ)</label>
+            <label className="text-gray-500 text-xs mb-1 block">Длительность (мин)</label>
             <input
               type="number"
               min={1}
@@ -100,7 +100,7 @@ export function AddTaskSheet({ selectedDate, onClose, onSubmit, isLoading }: Pro
         </div>
 
         <Button onClick={handleSubmit} loading={isLoading} disabled={!title.trim()}>
-          Илова кун
+          Добавить
         </Button>
       </div>
     </>
